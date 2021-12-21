@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>Menu.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #f97bb0; font-weight: bold;}
+.s1 { color: #dfdfe0;}
+.s2 { color: #ff806c;}
+.s3 { color: #d7c781;}
+</style>
+</head>
+<body bgcolor="#292a30">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Menu.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java.util.Scanner;</span>
+
+<span class="s0">public class </span><span class="s1">Menu {</span>
+    <span class="s0">public static void </span><span class="s1">main(String[] args) {</span>
+        <span class="s1">CandyManager candyManager = </span><span class="s0">new </span><span class="s1">CandyManager();</span>
+        <span class="s1">Scanner scanner = </span><span class="s0">new </span><span class="s1">Scanner(System.in);</span>
+        <span class="s0">int </span><span class="s1">choice;</span>
+        <span class="s0">do </span><span class="s1">{</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;Menu&quot;</span><span class="s1">);</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;1. Hiển thị tất cả kẹo&quot;</span><span class="s1">);</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;2. Thêm một viên kẹo&quot;</span><span class="s1">);</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;3. Sửa một viên kẹo theo id&quot;</span><span class="s1">);</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;4. Xóa một viên kẹo theo id&quot;</span><span class="s1">);</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;5. Hiển thị viên kẹo theo id&quot;</span><span class="s1">);</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;6. Tìm viên keo có giá cao nhất&quot;</span><span class="s1">);</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;7. Xóa tất cả các viên kẹo có màu&quot;</span><span class="s1">);</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;Nhập lựa chọn&quot;</span><span class="s1">);</span>
+            <span class="s1">choice = scanner.nextInt();</span>
+            <span class="s0">switch </span><span class="s1">(choice) {</span>
+                <span class="s0">case </span><span class="s3">1</span><span class="s1">:</span>
+                    <span class="s1">candyManager.displayAll();</span>
+                    <span class="s0">break</span><span class="s1">;</span>
+                <span class="s0">case </span><span class="s3">2</span><span class="s1">:</span>
+                    <span class="s1">Candy candy = candyManager.createCandy(scanner);</span>
+                    <span class="s1">System.out.println();</span>
+                    <span class="s1">candyManager.addCandy(candy);</span>
+                    <span class="s0">break</span><span class="s1">;</span>
+                <span class="s0">case </span><span class="s3">3</span><span class="s1">:</span>
+                    <span class="s1">System.out.println(</span><span class="s2">&quot;Nhập vào id muốn sửa&quot;</span><span class="s1">);</span>
+                    <span class="s0">int </span><span class="s1">id = scanner.nextInt();</span>
+                    <span class="s1">System.out.println(candyManager.CandyUpdate(id));</span>
+                    <span class="s0">break</span><span class="s1">;</span>
+                <span class="s0">case </span><span class="s3">4</span><span class="s1">:</span>
+                    <span class="s1">System.out.println(</span><span class="s2">&quot;Nhập vào id muốn xóa&quot;</span><span class="s1">);</span>
+                    <span class="s0">int </span><span class="s1">idDelete = scanner.nextInt();</span>
+                    <span class="s1">scanner.nextLine();</span>
+                    <span class="s1">System.out.println(candyManager.deleteById(idDelete));</span>
+                    <span class="s0">break</span><span class="s1">;</span>
+                <span class="s0">case </span><span class="s3">5</span><span class="s1">:</span>
+                    <span class="s1">System.out.println(</span><span class="s2">&quot;Nhập vào id viên kẹo mà bạn muốn hiển thị&quot;</span><span class="s1">);</span>
+                   <span class="s0">int </span><span class="s1">ide = scanner.nextInt();</span>
+                    <span class="s1">scanner.nextLine();</span>
+                    <span class="s1">System.out.println(candyManager.displayByColor(ide));</span>
+                    <span class="s0">break</span><span class="s1">;</span>
+                <span class="s0">case </span><span class="s3">6</span><span class="s1">:</span>
+                   <span class="s1">candyManager.findMaxPrice();</span>
+                    <span class="s0">break</span><span class="s1">;</span>
+            <span class="s1">}</span>
+        <span class="s1">} </span><span class="s0">while </span><span class="s1">(choice != </span><span class="s3">0</span><span class="s1">);</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>
